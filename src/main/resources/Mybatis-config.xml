@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 配置全局属性 -->
+    <settings>
+        <!-- 使用jdbc的getGeneratedKeys获取数据库自增主键 -->
+        <setting name="useGeneratedKeys" value="true"/>
+        <!-- 使用列别名代替列名，默认为true -->
+        <setting name="useColumnLabel" value="true"/>
+        <!-- 开起驼峰命名转换：Table{create_time} -> Entity(createTime) -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 开启延迟加载，默认为true -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!-- 设置积极的懒加载，默认是true -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+</configuration>

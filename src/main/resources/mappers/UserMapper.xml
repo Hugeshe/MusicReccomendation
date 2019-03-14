@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xie.DAO.UserDAO">
+
+    <resultMap id="user" type="User">
+        <result property="userId" column="user_id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="identity" column="identity"/>
+        <result property="gender" column="gender"/>
+        <result property="birthday" column="birthday"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="user">
+        SELECT
+          user_id,
+          username,
+          password,
+          identity,
+          gender,
+          birthday
+        FROM
+          users
+        WHERE
+          user_id=#{userId};
+    </select>
+
+    <select id="selectByName" resultMap="user">
+        SELECT
+            user_id,
+            username,
+            password,
+            identity,
+            gender,
+            birthday
+        FROM
+          users
+        WHERE
+          username=#{username};
+    </select>
+
+    <insert id="insertUser">
+        INSERT ignore INTO
+          users(username, password, identity, gender, birthday)
+        VALUES
+          (#{username},#{password},#{identity},#{gender},#{birthday});
+    </insert>
+</mapper>
