@@ -7,4 +7,6 @@ public interface SignService {
     public SignResult signIn(User user);
 
     public SignResult signUp(User user);
+
+    public User refreshUser(User user);
 }

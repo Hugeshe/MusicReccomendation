@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -17,11 +18,12 @@ public class SignController {
     @Autowired
     private SignService signService;
 
-
     @RequestMapping(value = "/signIn", method = RequestMethod.POST)
-    public String signIn(User user, HttpServletRequest request){
+    public String signIn(User user, HttpServletRequest request, HttpSession session){
         SignResult signResult = signService.signIn(user);
         if(signResult.isState()) {
+            user = signService.refreshUser(user);
+            session.setAttribute("user", user);
             return "index";
         }else{
             request.setAttribute("message", signResult.getStateInfo());

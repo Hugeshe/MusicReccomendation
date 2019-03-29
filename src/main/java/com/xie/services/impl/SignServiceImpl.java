@@ -40,4 +40,10 @@ public class SignServiceImpl implements SignService {
             return new SignResult(false, "something wrong, please try again");
         }
     }
+
+    @Override
+    public User refreshUser(User user){
+        User trueUser = userDAO.selectByName(user.getUsername());
+        return trueUser;
+    }
 }

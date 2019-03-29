@@ -94,21 +94,21 @@
     <div class="row">
         <div class="col-lg-4">
             <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2><a href="#">推荐歌曲</a> </h2>
+            <h2><a href="/music/song/recommend">推荐歌曲</a> </h2>
             <p>在此我们将为您展示您可能喜爱的歌曲</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default" href="/music/song/recommends" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
             <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
             <h2>您的收藏</h2>
             <p>在此我们将展示您已收藏的歌曲</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default" href="/music/song/favorites" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
             <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>您的关注</h2>
-            <p>在此我们将展示您已关注的用户</p>
-            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            <h2>最近热门</h2>
+            <p>在此我们将展示最新最热的歌曲</p>
+            <p><a class="btn btn-default" href="/music/song/hot" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 

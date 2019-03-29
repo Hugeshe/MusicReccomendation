@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xie.DAO.SongDAO">
+
+    <resultMap id="song" type="com.xie.beans.Song">
+        <result property="songId" column="song_id"/>
+        <result property="songname" column="songname"/>
+        <result property="singer" column="gender"/>
+        <result property="album" column="album"/>
+        <result property="picUrl" column="picUrl"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="song">
+        SELECT
+        song_id,
+        songname,
+        singer,
+        album,
+        picUrl
+        FROM
+        songs
+        WHERE
+        song_id=#{songId};
+    </select>
+
+    <select id="selectByName" resultMap="song">
+        SELECT
+        song_id,
+        songname,
+        singer,
+        album,
+        picUrl
+        FROM
+        songs
+        WHERE
+        songname=#{songname};
+    </select>
+
+    <select id="listByName" resultMap="song" parameterType="java.lang.String">
+        SELECT
+        song_id,
+        songname,
+        singer,
+        album,
+        picUrl
+        FROM
+        songs
+        WHERE
+        songname LIKE "%"#{_parameter}"%";
+    </select>
+
+    <select id="listFavorites" resultMap="song">
+        SELECT
+        song_id,
+        songname,
+        singer,
+        album,
+        picUrl
+        FROM
+        songs
+        WHERE
+        song_id IN (
+          SELECT song_id FROM user_favorites
+          WHERE user_id = #{user_id}
+        )
+    </select>
+
+    <select id="listHottest" resultMap="song">
+        SELECT
+        song_id,
+        songname,
+        singer,
+        album,
+        picUrl
+        FROM
+        songs
+        WHERE
+        song_id IN (
+        select song_id from user_favorites
+         group by song_id
+          order by count(user_id) DESC
+          ) limit 0,20;
+    </select>
+
+    <select id="listRecommends" resultMap="song">
+        SELECT
+        song_id,
+        songname,
+        singer,
+        album,
+        picUrl
+        FROM
+        songs
+        WHERE
+        song_id IN (
+        select song_id from user_recommends
+        WHERE user_id = #{user_id}
+        )
+    </select>
+</mapper>
